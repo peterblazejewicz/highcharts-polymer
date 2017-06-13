@@ -1,0 +1,37 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="highcharts-polymer-js.html">
+
+<dom-module id="highcharts-polymer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `highcharts-polymer`
+     * Highcharts webcomponents
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class HighchartsPolymer extends Polymer.Element {
+      static get is() { return 'highcharts-polymer'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'highcharts-polymer'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HighchartsPolymer.is, HighchartsPolymer);
+  </script>
+</dom-module>
