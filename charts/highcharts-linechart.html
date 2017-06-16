@@ -32,6 +32,14 @@
           }
         };
       }
+
+      connectedCallback() {
+        this.addEventListener('iron-resize', this._resize.bind(this));
+      }
+
+      _resize(event) {
+        console.log(event);
+      }
     }
 
     window.customElements.define(HighchartsLinechart.is, HighchartsLinechart);
