@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link ref="import" href="../polymer-resizable-behavior.html">
 <link rel="import" href="highcharts-import.html">
 <link rel="import" href="highcharts-styles.html">
 
@@ -21,7 +22,7 @@
      * @polymer
      * @demo demo/index.html
      */
-    class HighchartsLinechart extends Polymer.Element {
+    class HighchartsLinechart extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior],  Polymer.Element) {
       static get is() { return 'highcharts-linechart'; }
       static get properties() {
         return {
