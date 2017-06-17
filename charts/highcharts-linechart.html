@@ -1,8 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
-<link ref="import" href="../polymer-resizable-behavior.html">
+<link ref="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="highcharts-import.html">
 <link rel="import" href="highcharts-styles.html">
-
+<link rel="import" href="highcharts-resize.html">
 <dom-module id="highcharts-linechart">
   <template>
     <style>
@@ -22,7 +22,7 @@
      * @polymer
      * @demo demo/index.html
      */
-    class HighchartsLinechart extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior],  Polymer.Element) {
+    class HighchartsLinechart extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior, ResizeBehavior],  Polymer.Element) {
       static get is() { return 'highcharts-linechart'; }
       static get properties() {
         return {
@@ -33,13 +33,27 @@
         };
       }
 
-      connectedCallback() {
-        this.addEventListener('iron-resize', this._resize.bind(this));
+      constructor() {
+        super();
+        console.log(this);
       }
 
-      _resize(event) {
-        console.log(event);
+      connectedCallback() {
+        super.connectedCallback();
+        console.log(this.connectedCallback.name);
+        this.resize();
       }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log(this.disconnectedCallback.name);
+      }
+
+      attributeChanged() {
+        super.attributeChanged();
+        console.log(this.attributeChanged.name);
+      }
+
     }
 
     window.customElements.define(HighchartsLinechart.is, HighchartsLinechart);
