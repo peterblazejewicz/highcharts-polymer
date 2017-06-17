@@ -1,8 +1,7 @@
-<link rel="import" href="../polymer/polymer.html">
-<link ref="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="highcharts-import.html">
 <link rel="import" href="highcharts-styles.html">
-<link rel="import" href="highcharts-resize.html">
 <dom-module id="highcharts-linechart">
   <template>
     <style>
@@ -22,7 +21,7 @@
      * @polymer
      * @demo demo/index.html
      */
-    class HighchartsLinechart extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior, ResizeBehavior],  Polymer.Element) {
+    class HighchartsLinechart extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior],  Polymer.Element) {
       static get is() { return 'highcharts-linechart'; }
       static get properties() {
         return {
@@ -40,18 +39,24 @@
 
       connectedCallback() {
         super.connectedCallback();
-        console.log(this.connectedCallback.name);
-        this.resize();
+        this.addEventListener('iron-resize', (event) => this._handleIronResize(event));
+      }
+
+      ready() {
+        super.ready();
       }
 
       disconnectedCallback() {
         super.disconnectedCallback();
-        console.log(this.disconnectedCallback.name);
+        this.removeEventListener('iron-resize', (event) => this._handleIronResize(event));
       }
 
       attributeChanged() {
         super.attributeChanged();
-        console.log(this.attributeChanged.name);
+      }
+
+      _handleIronResize(event) {
+        console.log(`${event.type}`);
       }
 
     }

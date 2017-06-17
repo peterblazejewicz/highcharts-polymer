@@ -6,7 +6,7 @@
     "polymer": "Polymer/polymer#^2.0.0",
     "highcharts": "^5.0.12",
     "webcomponentsjs": "^1.0.1",
-    "iron-resizable-behavior": "^2.0.1"
+    "iron-resizable-behavior": "^2.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
