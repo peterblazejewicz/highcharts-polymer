@@ -4,7 +4,7 @@
   "main": "highcharts-polymer.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "highcharts": "^5.0.12",
+    "highcharts": "^5.0.14",
     "webcomponentsjs": "^1.0.1",
     "iron-resizable-behavior": "^2.0.0"
   },

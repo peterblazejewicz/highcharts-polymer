@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>highcharts-api test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../highcharts-api.html">
+  </head>
+  <body>
+
+    <script>
+      suite('highcharts-api', function() {
+
+        test('it has global Highcharts object loaded', function() {
+          assert.ok(window.Highcharts);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
