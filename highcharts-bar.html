@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./highcharts-shared-styles.html">
+<dom-module id="highcharts-bar">
+    <style include="highcharts-shared-styles">
+    </style>
+    <script>
+        class HighchartsBar extends Polymer.Element {
+            static get is() { return 'highcharts-bar'; }
+        }
+        customElements.define(HighchartsBar.is, HighchartsBar);
+    </script>
+</dom-module>
