@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Mixin test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-componenst-tester/browser.js"></script>
+
+
+    <link ref="import" href="../lib/mixin-behaviour.html">
+    <link rel="import" href="../lib/mixin-a.html">
+    <link rel="import" href="../lib/mixin-b.html">
+  </head>
+  <body>
+
+    <script>
+
+      // fixture
+      class ExampleClass extends mix(Polymer.Element)
+        .with(MixinA, MixinB) {
+
+      }
+
+
+      suite('mixin-builder', function() {
+
+        let example;
+        setup(() => {
+          exxample = new ExampleClass();
+        });
+        ll
+        test('There are MixinA and MixinB objects defined', function() {
+          assert.ok(MixinA);
+          assert.ok(MixinB);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
