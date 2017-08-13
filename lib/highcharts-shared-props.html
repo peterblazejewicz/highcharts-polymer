@@ -5,23 +5,39 @@
         static get properties() {
             return {
                 /**
-                * a reference to a chart
-                */
+                 * a reference to a chart
+                 */
                 chart: {
                     type: Object
                 },
-                /** 
-                * a type of the chart
-                */
+                /**
+                 * a type of the chart
+                 */
                 type: {
                     type: String
                 },
                 /**
-                * a title of the chart
-                */
+                 * a title of the chart
+                 */
                 title: {
                     type: String,
                     reflectToAttribute: true
+                }
+            }
+        }
+
+        /**
+         * return Chart representation
+         * as JS object (JS POCO)
+         */
+        get options() {
+            return {
+                chart: {
+                    type: this.type,
+                    renderTo: this.$.container
+                },
+                title: {
+                    text: this.text
                 }
             }
         }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <link rel="import" href="./bower_components/polymer/polymer-element.html">
 <link rel="import" href="./highcharts-api.html">
-<link rel="import" href="./highcharts-shared-styles.html">
+<link rel="import" href="./lib/highcharts-shared-styles.html">
 <link rel="import" href="./lib/highcharts-common-utils.html">
 <link rel="import" href="./lib/highcharts-shared-props.html">
 
@@ -32,23 +32,16 @@
 
             static get properties() {
                 return {
-
-                    options: {
-                        type: Object
+                    type: {
+                        type: String,
+                        value: 'bar'
                     }
                 }
             }
 
-            ready() {
-                super.ready();
-                this.options = {
-                    chart: {
-                        type: 'bar',
-                        renderTo: this.$.container
-                    },
-                    title: {
-                        text: 'Fruit Consumption'
-                    },
+            get options() {
+                let options = Object.assign({}, super.options, {
+
                     xAxis: {
                         categories: ['Apples', 'Bananas', 'Oranges']
                     },
@@ -64,7 +57,12 @@
                         name: 'John',
                         data: [5, 7, 3]
                     }]
-                }
+                });
+            return options;
+        }
+
+            ready() {
+                super.ready();
                 this.chart = Highcharts.chart(this.options);
             }
         }

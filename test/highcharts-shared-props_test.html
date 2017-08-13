@@ -14,11 +14,14 @@
   <link rel="import" href="../lib/highcharts-shared-props.html">
   <script>
     /**
-    * A test bed class to test common properties mixin
-    */
+     * A test bed class to test common properties mixin
+     */
     class CommonPropertiesMixinTestbed extends HighchartsMixinUtil(Polymer.Element).with(HighchartsSharedProps) {
       static get is() {
         return 'common-properties-mixin-testbed';
+      }
+      static get template() {
+        return '<div id="container"></div>';
       }
     }
     customElements.define(CommonPropertiesMixinTestbed.is, CommonPropertiesMixinTestbed);
@@ -31,6 +34,12 @@
       <common-properties-mixin-testbed title="A title" type="Bar" chart="{}"></common-properties-mixin-testbed>
     </template>
   </test-fixture>
+
+  <test-fixture id="options">
+      <template>
+        <common-properties-mixin-testbed title="A title" type="Bar" chart="{}"></common-properties-mixin-testbed>
+      </template>
+    </test-fixture>
 
   <script>
     suite('common properties mixin', () => {
@@ -60,6 +69,21 @@
 
     });
   </script>
+  <script>
+      suite('common mixin options test', () => {
+
+        let chart;
+
+        setup(() => {
+          chart = fixture('options');
+        });
+
+        test('it has options getter', () => {
+          assert.ok(chart.options);
+        });
+
+      });
+    </script>
 
 </body>
 
