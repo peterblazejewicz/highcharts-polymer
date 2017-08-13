@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <link rel="import" href="./bower_components/polymer/polymer-element.html">
-<link rel="import" href="highcharts-api.html">
-<link rel="import" href="highcharts-shared-styles.html">
-<link rel="import" href="highcharts-common-properties.html">
+<link rel="import" href="./highcharts-api.html">
+<link rel="import" href="./highcharts-shared-styles.html">
+<link rel="import" href="./lib/highcharts-common-utils.html">
+<link rel="import" href="./lib/highcharts-shared-props.html">
+
 <dom-module id="highcharts-bar">
     <template>
         <style include="highcharts-shared-styles">
@@ -14,24 +16,23 @@
                 justify-content: center;
                 align-items: stretch;
             }
+
             #container {
                 flex: 1 1 100%;
             }
         </style>
-        <div id="container"/>
+        <div id="container" />
     </template>
 
     <script>
-        class HighchartsBar extends mix(CommonBehaviour).with(Polymer.Element) {
+        class HighchartsBar extends HighchartsMixinUtil(Polymer.Element).with(HighchartsSharedProps) {
             static get is() {
                 return 'highcharts-bar';
             }
 
             static get properties() {
                 return {
-                    chart: {
-                        type: Object
-                    },
+
                     options: {
                         type: Object
                     }

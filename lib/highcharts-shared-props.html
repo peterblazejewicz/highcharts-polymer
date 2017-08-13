@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<script>
+    HighchartsSharedProps = (superclass) => class extends superclass {
+
+        static get properties() {
+            return {
+                /**
+                * a reference to a chart
+                */
+                chart: {
+                    type: Object
+                },
+                /** 
+                * a type of the chart
+                */
+                type: {
+                    type: String
+                },
+                /**
+                * a title of the chart
+                */
+                title: {
+                    type: String,
+                    reflectToAttribute: true
+                }
+            }
+        }
+    }
+</script>

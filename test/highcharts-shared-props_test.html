@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>Mixin test</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../bower_components/polymer/polymer-element.html">
+  <link rel="import" href="../lib/highcharts-common-utils.html">
+  <link rel="import" href="../lib/highcharts-shared-props.html">
+  <script>
+    /**
+    * A test bed class to test common properties mixin
+    */
+    class CommonPropertiesMixinTestbed extends HighchartsMixinUtil(Polymer.Element).with(HighchartsSharedProps) {
+      static get is() {
+        return 'common-properties-mixin-testbed';
+      }
+    }
+    customElements.define(CommonPropertiesMixinTestbed.is, CommonPropertiesMixinTestbed);
+  </script>
+</head>
+
+<body>
+  <test-fixture id="chart">
+    <template>
+      <common-properties-mixin-testbed title="A title" type="Bar" chart="{}"></common-properties-mixin-testbed>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('common properties mixin', () => {
+
+      let chart;
+
+      setup(() => {
+        chart = fixture('chart');
+      });
+
+      test('it creates an object', () => {
+        assert.ok(chart);
+      });
+
+      test('it has chart property', () => {
+        assert.ok(chart.hasOwnProperty('chart'));
+      });
+
+      test('it has title property', () => {
+        assert.ok(chart.hasAttribute('title'));
+      });
+
+      test('it has type property', () => {
+        assert.ok(chart.hasOwnProperty('type'));
+      });
+
+
+    });
+  </script>
+
+</body>
+
+</html>

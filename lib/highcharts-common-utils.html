@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <script>
-    class MixinBuilder {
+
+    HighchartsMixinUtil = (superclass) => new HighchartsMixinBuilder(superclass)
+
+    class HighchartsMixinBuilder {
         constructor(superclass) {
             this.superclass = superclass;
         }
