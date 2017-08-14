@@ -2,33 +2,56 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>highcharts-polymer demo</title>
+    <title>highcharts-polymer demo</title>
 
-  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../highcharts-bar.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../highcharts-bar.html">
 
-  <custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles">
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
 
-    </style>
-  </custom-style>
+
+        </style>
+    </custom-style>
 </head>
 
 <body>
-  <div class="vertical-section-container centered">
-    <h3>Basic highcharts-linechart demo</h3>
-    <demo-snippet>
-      <template>
-        <highcharts-bar title="Demo chart"></highcharts-bar>
-      </template>
-    </demo-snippet>
-  </div>
+    <div class="vertical-section-container centered">
+        <h3>Basic highcharts-linechart demo</h3>
+        <demo-snippet>
+            <template>
+                <highcharts-bar id="demo" title="Demo chart"></highcharts-bar>
+            </template>
+        </demo-snippet>
+    </div>
+    <script>
+        let data = {
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        };
+        let demo = document.querySelector('#demo');
+        demo.data = data;
+
+    </script>
 </body>
 
 </html>
